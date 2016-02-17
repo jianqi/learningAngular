@@ -1,0 +1,54 @@
+REST Methods
+============
+Get the latest news
+	GET /topnews/api/news
+	{ 
+		link: "http://acme.news.com/article/somearticle.html",
+		title: "This is the article's title",
+		description: "A summary of the article",
+		thumbnail: "http://acme.news.com/article/images/someimage.png",
+		pubdate: "publish date"
+	}
+
+Get a news item
+	GET /topnews/api/news/4 
+	{ 
+		link: "http://acme.news.com/article/somearticle.html",
+		title: "This is the article's title",
+		description: "A summary of the article",
+		thumbnail: "http://acme.news.com/article/images/someimage.png",
+		pubdate: "publish date"
+	}
+
+Get the number of news article
+	GET /topnews/api/news/count
+	{ count: 42 }
+
+Post a comment
+	POST|GET /topnews/comment
+		title=Title of the article
+		name=Fred
+		comment=I agree
+
+
+Notification
+============
+
+Receiving news, 15 seconds per news item
+http://<server>:<port>/topnews/api/news
+	{ 
+		link: "http://acme.news.com/article/somearticle.html",
+		title: "This is the article's title",
+		description: "A summary of the article",
+		thumbnail: "http://acme.news.com/article/images/someimage.png",
+		pubdate: "publish date"
+	}
+
+Receiving comments (optional)
+http://<server>:<port>/topnews/api/comment
+	{
+		title: "Title of the article",
+		name: "Fred",
+		comment: "I agree",
+	}
+

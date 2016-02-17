@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html ng-app="NewsApp">
+
+<head>
+    <title>TopNews</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="libs/angular.js"></script>    
+
+    <link rel="stylesheet" href="app/index.css" />
+    <script src="app/index.js"></script>
+</head>
+
+<body ng-controller="NewsCtrl">
+
+    <div class="container">
+        <div class="newsitem">
+            <div class="title">
+                <h1> 
+					{{ title }}
+				<h1>
+            </div>
+            
+            <div class="content">
+                <div class="thumbnail">
+					<!-- thumbnail -->
+                    <img ng-show="{{thumbnail}}" ng-src="{{thumbnail}}">
+                </div>
+                <span class="description">
+					<!-- description -->
+                   {{ description }}
+                </span>
+
+                <span class="pubdate">
+                    <!-- pubdate -->
+                    {{ date }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <h3>Comments</h3>
+    
+    <textarea rows="10" id="commentText" ng-model="message"></textarea>
+    <br>
+    <input type="text" placeholder="Your name" ng-model="name">
+    <button ng-click="post()">Post</button>
+</body>
+
+</html>
