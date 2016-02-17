@@ -3,6 +3,7 @@ var NewsApp = angular.module("NewsApp", []);
 function NewsCtrl($scope, ChatService){
     $scope.name = "";
     $scope.message = "";
+    $scope.comments = [];
     
     $scope.link = "";
     $scope.title = "";
@@ -17,26 +18,40 @@ function NewsCtrl($scope, ChatService){
         $scope.message = "";
     }
     
-    ChatService.connect(function(data){
-        
+    ChatService.connect(function(data){        
         $scope.title = data.title;
         $scope.link = data.link;
         $scope.description = data.description;
         $scope.thumbnail = data.thumbnail;
-        $scope.date = data.pubdate;
-        
+        $scope.date = data.pubdate;        
     })
+    
+    ChatService.connectComment(function(data){        
+        $scope.comments.push(data);
+    })
+    
     
 }
 
 function ChatService($http,$httpParamSerializerJQLike,$rootScope){
     this.source = null;
+    this.commentSource = null;
+    
     this.connect = function(callback){
         this.source = new EventSource("http://10.10.0.56:8080/topnews/api/news");
         this.source.addEventListener("message", function(evt){
             $rootScope.$apply(function(){
                 callback(JSON.parse(evt.data));
             })
+        });
+    }
+    
+    this.connectComment = function(updateComment){
+        this.commentSource = new EventSource("http://10.10.0.56:8080/topnews/api/comment");
+        this.commentSource.addEventListener("message", function(evt){
+            $rootScope.$apply(function(){                
+                updateComment(JSON.parse(evt.data));    
+            })            
         });
     }
     

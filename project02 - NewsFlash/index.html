@@ -41,7 +41,21 @@
         </div>
     </div>
     <h3>Comments</h3>
-    
+    <div style="
+    max-height: 265px;
+    overflow-x: scroll;">
+       <div class="comment" ng-repeat="c in comments">
+            <div class="comment-header">
+                {{c.title}}
+            </div>
+            <div class="comment-body ">
+                {{c.comment}}
+            </div>
+            <div class="comment-footer">
+                {{c.name}}
+            </div>
+        </div>
+    </div>
     <textarea rows="10" id="commentText" ng-model="message"></textarea>
     <br>
     <input type="text" placeholder="Your name" ng-model="name">
