@@ -1,0 +1,14 @@
+<ion-view title="Add City" >
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-input">
+                <span class="input-label">City</span>
+                <input type="text" placeholder=" city name" ng-model="cityName.country">
+            </label>
+        </form>
+        <div class="button-bar">
+            <a ui-sref="weather" class="button button-stable button-block ">Cancel</a>
+            <button class="button button-stable button-block " ng-click="add()">Add</button>
+        </div>
+    </ion-content>
+</ion-view>

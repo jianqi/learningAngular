@@ -1,0 +1,27 @@
+<ion-view >
+   
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <h1>{{ name }}</h1>
+        <h1>Time</h1>
+        <div>
+            <p>
+                {{date | date:'yyyy-MM-dd'}}
+            </p>
+        </div>
+        <h1>Weather</h1>
+        <div>
+            <p>
+                <b>{{ weather.main}}</b> - 
+                <u>{{ weather.description}}</u>
+            </p>
+        </div>
+        <h1>Temperature</h1>
+        <div>
+            <p>                
+                <b>Current</b> - {{temp.temp}}<br>
+                <b>Max</b> - {{temp.temp_max}}<br>
+                <b>Min</b> - {{temp.temp_min}}<br>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>
