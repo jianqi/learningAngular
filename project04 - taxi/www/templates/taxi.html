@@ -1,0 +1,17 @@
+<ion-view title="Taxi!">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <h1>Your location</h1>
+        <span class="input-label">{{center.latitude}},{{center.longitude}}</span>
+        <form class="list">
+            <label class="item item-input">
+                <span class="input-label">Postal code</span>
+                <input type="number" placeholder="" ng-model="bookdetails.postalCode">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Pickup</span>
+                <input type="text" placeholder="your pickup location" ng-model="bookdetails.pickup">
+            </label>
+            <button class="button button-stable button-block " ng-click="sendSms()">Book It</button>
+        </form>
+    </ion-content>
+</ion-view>
